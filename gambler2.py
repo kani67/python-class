@@ -1,0 +1,37 @@
+#gamble2.py
+import random
+import sys
+
+stake = int(input("Stake: "))
+goal = int(input("Goal: "))
+trials = int(input("Trials: "))
+
+bets = 0
+wins = 0
+
+for t in range(trials):
+	# Run one experiment
+	cash = stake
+	for c in range (cash > 0 , goal):
+	#while (cash > 0) and (cash < goal):
+		#Simulate one bet
+
+
+		bets += 1
+		for m in (1, cash):
+			for k in (1, cash):
+				print("* ", end = " ")
+
+		print("", end="")
+
+
+		if random.randrange(0, 2) == 0:
+			cash += 1
+		else:
+			cash -= 1
+
+	if cash == goal:
+		wins += 1
+
+print(str(100 * wins // trials) + "% wins")	
+print("Avg # bets: " + str(bets // trials))
